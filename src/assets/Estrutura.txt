@@ -1,3 +1,22 @@
 App
+  |->commonModule  - Componentes comum a toda a aplicação
+  |----> alertComponent  - Componente de alerta
+  |----> modalComponent  - Componente de modal
+  |----> menuComponent - menu da aplicação
+  |--------------------------------------------------------
+  |->loginModule   - Componentes de login
+  |---->loginComponent - tela login
+  |---->CadastroUsuarioComponent - Cadastrar novo usuario 
+  |--------------------------------------------------------
+  |-->lojaModule - Componentes da tela status
+  |---->sensorComponent -
+  |---->sensorStatusComponent - componente de alerta que mostra o dados de alerta (nome/temperatura/localidade) e muda de cor de acordo com a temperatura
+  |---->sensorDetalhesComponent - mostra dos detalhes do sensorDetalhes
+
+
+
+
+
+
  |-servicos  //pasta onde ficarão os serviços
  |-login  //Modulo de login
