@@ -1,3 +1,4 @@
+import { UtilService } from './comum/util.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  constructor(private util: UtilService) {  }
+  uai = true;
+  tes() {
+    return this.uai = !this.uai;
+  }
 }
