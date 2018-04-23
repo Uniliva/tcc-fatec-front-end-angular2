@@ -9,3 +9,7 @@ img {
 .pad{
   padding: 10px;
 }
+
+.ng-invalid.ng-touched:not(form) {
+  border-bottom: 2px solid red;
+}

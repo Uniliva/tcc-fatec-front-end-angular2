@@ -11,13 +11,32 @@ import { Usuario } from './../../entidades/usuario';
 export class LoginComponent implements OnInit {
   usuario: Usuario = new Usuario();
 
+  emailValido = false;
+  senhaValido = false;
+  dadosInvalidos = false;
+
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   fazerLogin() {
-    this.authService.fazerLogin(this.usuario);
+    console.log("teste")
+    this.dadosInvalidos = false;
+    this.dadosInvalidos = this.authService.fazerLogin(this.usuario);  
+  }
+
+    mostrar() {
+      this. dadosInvalidos = false;
+    }
+
+    validaCampo(campo) {
+      if(campo.name == "senha"){
+        this.senhaValido = !campo.valid && campo.touched;
+      }else{
+        this.emailValido = !campo.valid && campo.touched;
+      }
+
   }
 
 }

@@ -1,3 +1,4 @@
+import { ComumModule } from './../comum/comum.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 @NgModule({
   imports: [
     CommonModule,
+    ComumModule,
     FormsModule
   ],
   declarations: [LoginComponent],

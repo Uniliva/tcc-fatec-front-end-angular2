@@ -13,7 +13,8 @@ import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao
     PaginaNaoEncontradaComponent
   ],
   exports: [
-    AlertaComponent
+    AlertaComponent,
+    PaginaNaoEncontradaComponent
   ]
 })
 export class ComumModule { }

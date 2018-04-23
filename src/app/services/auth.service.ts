@@ -16,10 +16,11 @@ export class AuthService {
             if (usuario.email === 'usuario@email.com' && usuario.senha === '123456') {
                 this.usuarioAutenticado = true;
                 this.mostrarMenuEmitter.emit(true);
-                this.router.navigate(['/']);
+                this.router.navigate(['/status']);
             } else {
                 this.usuarioAutenticado = false;
                 this.mostrarMenuEmitter.emit(false);
+                return true;
             }
     }
 

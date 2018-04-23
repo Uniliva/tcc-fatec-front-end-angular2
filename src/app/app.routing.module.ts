@@ -10,8 +10,8 @@ const appRoutes: Routes = [
     { path: 'status', loadChildren: 'app/status/status.module#StatusModule'},
     { path: 'lojas', loadChildren: 'app/loja/loja.module#LojaModule'},
     { path: 'relatorio', loadChildren: 'app/relatorio/relatorio.module#RelatorioModule'},
-   /* { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: '**', component: PaginaNaoEncontradaComponent }*/
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '**', component: PaginaNaoEncontradaComponent }
 ];
 
 @NgModule({

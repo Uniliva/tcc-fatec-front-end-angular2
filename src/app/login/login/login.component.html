@@ -1,6 +1,6 @@
 <div class="row centro">
   <div class="col s12 l4 offset-s0 offset-l4">
-    <div class="card pad">
+    <form class="card pad" #form="ngForm">
       <div class="card-image">
         <div class="row">
           <div class="col s10 l8 offset-s1 offset-l2">
@@ -11,23 +11,32 @@
       <div class="card-content">
         <span class="card-title">Login</span>
         <div class="divider"></div>
+        <br>
         <div class="row">
+            <app-alerta [isVisivel]="dadosInvalidos"  classeCor="red" (click)="mostrar()">
+                Usuario ou senha inválidos!
+                 </app-alerta>
+
           <div class="input-field col s12">
             <i class="material-icons prefix">account_circle</i>
-            <input type="text" id="email" [(ngModel)]="usuario.email" >
+            <input type="text" id="email" name="email" [(ngModel)]="usuario.email" email #email="ngModel"  (blur)="validaCampo(email)">
             <label for="email">E-mail</label>
+            <app-alerta [isVisivel]="emailValido" classeCor="red">
+              E-mail é obrigatorio!
+              </app-alerta>
           </div>
-
           <div class="input-field col s12">
             <i class="material-icons prefix">enhanced_encryption</i>
-            <input type="password" id="senha" [(ngModel)]="usuario.senha" >
+            <input type="password" id="senha" name="senha" [(ngModel)]="usuario.senha" required maxlength=8 minlength="8" #senha="ngModel"  (blur)="validaCampo(senha)">
             <label for="senha">Senha</label>
+            <app-alerta [isVisivel]="senhaValido"  classeCor="red">
+             Senha é obrigatorio, e com 8 digitos
+              </app-alerta>
           </div>
-
         </div>
         <div class="card-action">
-          <button class="btn  right blue" (click)="fazerLogin()">login</button>
+          <button class="btn  right blue" (click)="fazerLogin()"  [disabled]="!form.valid">login</button>
         </div>
       </div>
-    </div>
+    </form>
   </div>
