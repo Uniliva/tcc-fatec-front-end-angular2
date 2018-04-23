@@ -2,10 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ComumModule } from './comum/comum.module';
+import { Routes, RouterModule } from '@angular/router';
 
 import { MaterializeModule } from 'angular2-materialize';
+import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
-import { UtilService } from './comum/util.service';
+import { LoginModule } from './login/login.module';
+import { AuthService } from './services/auth.service';
+
 
 
 @NgModule({
@@ -15,9 +19,11 @@ import { UtilService } from './comum/util.service';
   imports: [
     BrowserModule,
     ComumModule,
-    FormsModule
+    LoginModule,
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [UtilService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

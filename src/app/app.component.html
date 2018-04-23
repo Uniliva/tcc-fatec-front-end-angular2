@@ -1,5 +1,30 @@
-<app-menu></app-menu>
+<!-- inicio menu-->
+<nav *ngIf="mostrarMenu">
+  <div class="container z-depth-5">
+    <div class="nav-wrapper">
+      <a class="brand-logo">U-Monitor</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li routerLinkActive="active">
+          <a routerLink="/status">
+            <i class="material-icons left">shuffle</i>STATUS</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="lojas">
+            <i class="material-icons left">home</i>LOJAS</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="relatorio">
+            <i class="material-icons left">assignment</i>RELATÓRIOS</a>
+        </li>
+        <li>
+          <a>
+            <i class="material-icons left red-text">exit_to_app</i>LOGOUT</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Fim menu-->
 <div class="container">
-
-
+  <router-outlet></router-outlet>
 </div>
