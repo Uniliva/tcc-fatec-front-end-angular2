@@ -15,10 +15,7 @@ export class AlertaComponent implements OnInit {
   ngOnInit() {
   }
 
-  close() {
-    console.log(this.isVisivel);
-    this.isVisivel = false;
-  }
+
 
 }
 
