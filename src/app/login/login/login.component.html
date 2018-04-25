@@ -1,9 +1,9 @@
 <div class="row centro">
-  <div class="col s12 l4 offset-s0 offset-l4">
+  <div class="col s12 m6 l4 offset-s0 offset-m4 offset-l4">
     <form class="card pad" #form="ngForm">
       <div class="card-image">
         <div class="row">
-          <div class="col s10 l8 offset-s1 offset-l2">
+          <div class="col s10 m8 l8 offset-s1  offset-m2 offset-l2">
             <img class="circle responsive-img" src="../../../favicon.ico">
           </div>
         </div>
@@ -35,7 +35,8 @@
           </div>
         </div>
         <div class="card-action">
-          <button class="btn  right blue" (click)="fazerLogin()"  [disabled]="!form.valid">login</button>
+          <app-loading [visivel]="loading" class="right"></app-loading>
+          <button class="btn  right blue" (click)="fazerLogin(form)" *ngIf="!loading"  [disabled]="!form.valid">login</button>
         </div>
       </div>
     </form>

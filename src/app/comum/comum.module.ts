@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AlertaComponent } from './alerta/alerta.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   imports: [
@@ -10,11 +11,13 @@ import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao
   ],
   declarations: [
     AlertaComponent,
-    PaginaNaoEncontradaComponent
+    PaginaNaoEncontradaComponent,
+    LoadingComponent
   ],
   exports: [
     AlertaComponent,
-    PaginaNaoEncontradaComponent
+    PaginaNaoEncontradaComponent, 
+    LoadingComponent
   ]
 })
 export class ComumModule { }

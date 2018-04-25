@@ -13,3 +13,7 @@ img {
 .ng-invalid.ng-touched:not(form) {
   border-bottom: 2px solid red;
 }
+
+.blue {
+  background-color: #003afc;
+}

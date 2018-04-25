@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
 import { AuthService } from './../../services/auth.service';
+import { UsuarioService } from './../../services/usuario.service';
+import { Router } from '@angular/router';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Usuario } from './../../entidades/usuario';
 
 @Component({
@@ -9,33 +10,40 @@ import { Usuario } from './../../entidades/usuario';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  usuario: Usuario = new Usuario();
+  usuario: Usuario = new Usuario()
 
-  emailValido = false;
-  senhaValido = false;
-  dadosInvalidos = false;
+  emailValido ; senhaValido; dadosInvalidos; loading = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private usuarioService: UsuarioService) { }
 
   ngOnInit() {
   }
 
   fazerLogin() {
-    console.log("teste")
+    this.loading = true;
+    this.usuarioService.logar(this.usuario).subscribe(
+           res => {
+               this.authService.mostrarMenuEmitter.emit(true);
+               this.router.navigate(['/status']);
+           },
+           error => {
+               this.authService.mostrarMenuEmitter.emit(false);
+               this.dadosInvalidos = true;
+               this.loading = false;
+           }
+       )
+   }
+
+  mostrar() {
     this.dadosInvalidos = false;
-    this.dadosInvalidos = this.authService.fazerLogin(this.usuario);  
   }
 
-    mostrar() {
-      this. dadosInvalidos = false;
+  validaCampo(campo) {
+    if (campo.name == "senha") {
+      this.senhaValido = !campo.valid && campo.touched;
+    } else {
+      this.emailValido = !campo.valid && campo.touched;
     }
-
-    validaCampo(campo) {
-      if(campo.name == "senha"){
-        this.senhaValido = !campo.valid && campo.touched;
-      }else{
-        this.emailValido = !campo.valid && campo.touched;
-      }
 
   }
 

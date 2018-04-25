@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class AppComponent implements  OnInit, OnDestroy {
   inscricao: Subscription;
-  mostrarMenu: Boolean = false;
+  mostrarMenu: Boolean = true;
 
   constructor(private authService: AuthService) { }
 

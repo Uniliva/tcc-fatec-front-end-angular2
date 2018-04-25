@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { AuthService } from './services/auth.service';
+import { UsuarioService } from './services/usuario.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -21,9 +23,10 @@ import { AuthService } from './services/auth.service';
     ComumModule,
     LoginModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [UsuarioService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
