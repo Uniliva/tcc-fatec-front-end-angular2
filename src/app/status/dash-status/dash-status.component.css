@@ -2,6 +2,7 @@
     margin: 0px;
 }
 
+
 .alert {
     border-radius: 2px;
     top: 35px;
@@ -23,16 +24,18 @@
 .alert > div:last-child{
     white-space: normal;
 }
-.uai > div{
+.ajuste > div > div{
     position: relative;
     display: inline-block;
     vertical-align: top;
-    margin:  3px;
+    margin: 5px;
+    
     
 }
 
 @media (max-width: 767px) {
     .alert {
-        width:calc(100% - 10px) !important;
+        width:100% !important;
+        margin: 5px 0 !important;
     }
 }

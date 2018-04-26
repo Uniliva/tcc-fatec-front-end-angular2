@@ -1,4 +1,7 @@
+import { Status } from './../../entidades/sensor';
 import { Component, OnInit } from '@angular/core';
+import { DadosService } from './../../services/dados.service';
+import { Sensor } from '../../entidades/sensor';
 
 @Component({
   selector: 'app-dash-status',
@@ -7,9 +10,68 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashStatusComponent implements OnInit {
 
-  constructor() { }
+  listaSensores = [];
+  atualiza 
+
+  constructor(private _dadosService: DadosService) { }
 
   ngOnInit() {
+    this.monitora();
+  }
+  ngOnDestroy(): void {
+    console.log("destruiu");
+    clearTimeout(this.atualiza);    
+  }
+
+  monitora() {
+    this._dadosService.getSensores().subscribe(
+      res => this.buscaDados(res['sensores']),
+      error => console.log(`Aconteceu um erro: ${error}`)
+    )
+    console.log("executa")
+    this.atualiza = setTimeout( () => this.monitora(),20000);   //2 minnutos -> 120000 //5- minutos -> 300000
+  }
+
+  buscaDados(sensores: Sensor[]) {
+    this.listaSensores = []
+    sensores.forEach(s => {
+      this._dadosService.getDadoSensor(s.id, 1).subscribe(res => {
+        s.dados = res['dados'][0]
+        s.status = this.getStatus(s)
+        this.carregaLista(s)
+      },
+        error => console.log(`Aconteceu um erro: ${error}`)
+      )
+    });
+  }
+
+  getStatus(sensor: Sensor): Status {
+    const status = new Status();
+    if (!sensor.dados.temEnergia) {
+      status.popula('vermelho', 'Equipamento sem alimentação eletrica!')
+    }else if (sensor.dados.temperaturaAtual >= sensor.temperaturaMax) {
+      status.popula('vermelho', 'Temperatura acima do limite Máximo!')
+    } else if (sensor.dados.temperaturaAtual < sensor.temperaturaMax && sensor.dados.temperaturaAtual >= (sensor.temperaturaMax - 2)) {
+      status.popula('amarelo', 'Temperatura Proximo ao limite Máximo!')
+
+    } else if (sensor.dados.temperaturaAtual <= sensor.temperaturaMin) {
+      status.popula('vermelho', 'Temperatura Abaixo do limite Mínimo!')
+
+    } else if (sensor.dados.temperaturaAtual > sensor.temperaturaMin && sensor.dados.temperaturaAtual <= (sensor.temperaturaMin + 2)) {
+      status.popula('amarelo', 'Temperatura Proximo ao limite Mínimo!')
+
+    } else {
+      status.popula('verde', 'Temperatura normal!');
+    }
+    return status
+  }
+
+  carregaLista(sensor: Sensor) {   
+    if (sensor.status.cor == 'vermelho' || sensor.status.cor == 'amarelo') {
+      this.listaSensores.unshift(sensor);
+    } else {
+      this.listaSensores.push(sensor);
+    }
   }
 
 }

@@ -13,7 +13,7 @@
         <div class="divider"></div>
         <br>
         <div class="row">
-            <app-alerta [isVisivel]="dadosInvalidos"  classeCor="red" (click)="mostrar()">
+            <app-alerta [isVisivel]="dadosInvalidos"  classeCor="vermelho" (click)="mostrar()">
                 Usuario ou senha inválidos!
                  </app-alerta>
 
@@ -21,7 +21,7 @@
             <i class="material-icons prefix">account_circle</i>
             <input type="text" id="email" name="email" [(ngModel)]="usuario.email" email #email="ngModel"  (blur)="validaCampo(email)">
             <label for="email">E-mail</label>
-            <app-alerta [isVisivel]="emailValido" classeCor="red">
+            <app-alerta [isVisivel]="emailValido" classeCor="vermelho">
               E-mail é obrigatorio!
               </app-alerta>
           </div>
@@ -29,14 +29,14 @@
             <i class="material-icons prefix">enhanced_encryption</i>
             <input type="password" id="senha" name="senha" [(ngModel)]="usuario.senha" required maxlength=8 minlength="8" #senha="ngModel"  (blur)="validaCampo(senha)">
             <label for="senha">Senha</label>
-            <app-alerta [isVisivel]="senhaValido"  classeCor="red">
+            <app-alerta [isVisivel]="senhaValido"  classeCor="vermelho">
              Senha é obrigatorio, e com 8 digitos
               </app-alerta>
           </div>
         </div>
         <div class="card-action">
           <app-loading [visivel]="loading" class="right"></app-loading>
-          <button class="btn  right blue" (click)="fazerLogin(form)" *ngIf="!loading"  [disabled]="!form.valid">login</button>
+          <button class="btn  right azul" (click)="fazerLogin(form)" *ngIf="!loading"  [disabled]="!form.valid">login</button>
         </div>
       </div>
     </form>

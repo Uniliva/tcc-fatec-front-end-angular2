@@ -13,11 +13,11 @@ export class UsuarioService {
   constructor(private _http:  HttpClient) { }
 
   novoUsuario(u: Usuario){
-    this._http.post(this.api+'/usuarios/novo',u)
+    this._http.post(`${this.api}/usuarios/novo`,u)
   }
 
   logar(u: Usuario){
-    return this._http.post(this.api+'/usuarios/login',u)
+    return this._http.post(`${this.api}/usuarios/login`,u)
   }
 
 

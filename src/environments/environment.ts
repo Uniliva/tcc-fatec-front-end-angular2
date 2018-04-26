@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,  
-  apiUrl:'https://umonitor-api.herokuapp.com'
+  apiUrl:'http://localhost:8060'
 
 };

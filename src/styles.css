@@ -1,2 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/materialize-css/dist/css/materialize.css";
+
+.azul { background-color: #2B303A; }
+.laranja { background-color: #DC3912; }
+.verde { background-color: #00884A; }
+.vermelho { background-color: #F56954; } 
+.amarelo {
+    background-color: #FADD56;
+    color: #666 !important;
+}   

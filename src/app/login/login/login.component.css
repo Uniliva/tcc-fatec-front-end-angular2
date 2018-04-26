@@ -1,19 +1,6 @@
-img {
-  width: 100px;
-}
-
-.centro {
-  margin-top: 10%;
-}
-
-.pad{
-  padding: 10px;
-}
-
-.ng-invalid.ng-touched:not(form) {
-  border-bottom: 2px solid red;
-}
-
-.blue {
-  background-color: #003afc;
-}
+img { width: 100px; }
+.centro { margin-top: 10%; }
+.pad { padding: 10px; }
+.ng-invalid.ng-touched:not(form) { border-bottom: 2px solid #F56954; }
+.azul:hover { background-color: #2B303A; }
+.prefix.active { color: #00884A }

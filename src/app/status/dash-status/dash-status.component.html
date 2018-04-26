@@ -1,37 +1,24 @@
-<div class="row uai ">
-  <div class="red alert  col s12 m6 l6 ">
-    <div class="row">
-      <div class="col s6">Supermecado Chama</div>
-      <div class="col s2">1004</div>
-      <div class="col s4">Geladeira</div>
-    </div>
-    <div class="divider"></div>
-    <div class="row ">
-      <div class="col s4">T-MIN: 1º</div>
-      <div class="col s4">T-MAX: 20º</div>
-      <div class="col s4">T-ATUAL: 8º</div>
-    </div>
-    <div class="row">
-      <div class="col s4">Energia: OK</div>
-      <div class="col s8">Temperatura abaixo do limite minimo!</div>
-    </div>
-  </div>
-
-  <div class="red alert  col s12 m6 l6 ">
-      <div class="row">
-        <div class="col s6">Supermecado Chama</div>
-        <div class="col s2">1004</div>
-        <div class="col s4">Geladeira</div>
-      </div>
-      <div class="divider"></div>
-      <div class="row ">
-        <div class="col s4">T-MIN: 1º</div>
-        <div class="col s4">T-MAX: 20º</div>
-        <div class="col s4">T-ATUAL: 8º</div>
-      </div>
-      <div class="row">
-        <div class="col s4">Energia: OK</div>
-        <div class="col s8">Temperatura abaixo do limite minimo!</div>
-      </div>
-    </div>
+<div class="row ajuste ">
+    <div *ngFor="let sensor of listaSensores" >
+        <div class="{{sensor.status.cor}} alert  col s12 m6 l6 ">
+          <div class="row">
+            <div class="col s6">{{sensor.nomeEstabelemento}}</div>
+            <div class="col s2">{{sensor.codigo}}</div>
+            <div class="col s4">{{sensor.decricao}}</div>
+          </div>
+          <div class="divider"></div>
+          <div class="row ">
+            <div class="col s4">T-MIN: {{sensor.temperaturaMin}}ºC</div>
+            <div class="col s4">T-MAX: {{sensor.temperaturaMax}}ºC</div>
+            <div class="col s4">T-ATUAL: {{sensor.dados.temperaturaAtual}}ºC</div>
+          </div>
+          <div class="row">
+            <div class="col s4">Energia: {{sensor.dados.temEnergia ? 'OK' : 'ERRO' }}</div>       
+            <div class="col s8">Data: {{sensor.dados.dataAtual | date: 'dd/MM/yyyy - h:mm:ss a' }}</div>   
+          </div>
+          <div class="row">
+              <div class="col s12">{{sensor.status.msg}}</div>     
+            </div>
+        </div>
+      </div>  
 </div>
