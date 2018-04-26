@@ -5,15 +5,34 @@
 .alert {
     border-radius: 2px;
     top: 35px;
-    width: auto;
-    margin-top: 10px;
+    width: calc(50% - 10px) !important;
+    margin-top: 7px;
     max-width: 100%;
     height: auto;
     min-height: 48px;
     line-height: 1.5em;
-    background-color: #323232;
-    padding: 10px 25px;
+    padding: 8px;
     font-size: 1.1rem;
     font-weight: 300;
     color: #fff;
+
+}
+.alert > div{
+    white-space: nowrap;
+}
+.alert > div:last-child{
+    white-space: normal;
+}
+.uai > div{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin:  3px;
+    
+}
+
+@media (max-width: 767px) {
+    .alert {
+        width:calc(100% - 10px) !important;
+    }
 }
