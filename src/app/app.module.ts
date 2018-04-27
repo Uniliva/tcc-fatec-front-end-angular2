@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ComumModule } from './comum/comum.module';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { MaterializeModule } from 'angular2-materialize';
 import { AppRoutingModule } from './app.routing.module';
@@ -23,7 +24,9 @@ import { DadosService } from './services/dados.service';
     LoginModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
+
   ],
   providers: [UsuarioService, AuthService, DadosService],
   bootstrap: [AppComponent]
