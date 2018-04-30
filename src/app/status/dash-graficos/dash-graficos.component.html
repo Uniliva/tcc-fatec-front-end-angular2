@@ -1,7 +1,14 @@
-<app-graficos-barras></app-graficos-barras>
+<div class="row grafico">
+    <div class="col s12 m12 l12">
+  <app-graficos-linha></app-graficos-linha>
+    </div>
+</div>
 
-
-<p-chart type="line" [data]="data" width="40w" height="80w"></p-chart>
-
-<p-chart type="pie" [data]="data"></p-chart>
-
+<div class="row">
+    <div class="col s12 m6 l6">
+        <app-graficos-barras></app-graficos-barras>
+    </div>
+    <div class="col s12 m6 l6">
+        <app-graficos-pizza></app-graficos-pizza>
+    </div>
+</div>

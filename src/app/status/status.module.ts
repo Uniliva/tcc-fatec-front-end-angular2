@@ -1,6 +1,6 @@
 
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {ChartModule} from 'primeng/chart';
 import {FieldsetModule} from 'primeng/fieldset';
@@ -29,6 +29,7 @@ import { GraficosLinhaComponent } from './graficos-linha/graficos-linha.componen
     DashGraficosComponent, 
     GraficosBarrasComponent, 
     GraficosPizzaComponent, 
-    GraficosLinhaComponent]
+    GraficosLinhaComponent],
+    providers: [DatePipe]
 })
 export class StatusModule { }
