@@ -25,10 +25,10 @@ import { GraficosLinhaComponent } from './graficos-linha/graficos-linha.componen
     DropdownModule
   ],
   declarations: [
-    DashStatusComponent, 
-    DashGraficosComponent, 
-    GraficosBarrasComponent, 
-    GraficosPizzaComponent, 
+    DashStatusComponent,
+    DashGraficosComponent,
+    GraficosBarrasComponent,
+    GraficosPizzaComponent,
     GraficosLinhaComponent],
     providers: [DatePipe]
 })

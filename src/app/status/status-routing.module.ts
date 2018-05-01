@@ -6,8 +6,7 @@ import { DashStatusComponent } from './dash-status/dash-status.component';
 
 const routes: Routes = [
   {path: '', component: DashStatusComponent},
-  {path:'graficos/:id', component: DashGraficosComponent}
-
+  {path: 'graficos/:id', component: DashGraficosComponent}
 ];
 
 @NgModule({

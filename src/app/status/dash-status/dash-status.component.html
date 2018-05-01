@@ -1,6 +1,6 @@
 <div class="row ajuste ">
     <div *ngFor="let sensor of listaSensores" >
-        <div class="{{sensor.status.cor}} alert  col s12 m6 l6 ">
+        <div [routerLink]="[ 'graficos', sensor.id ]" class="{{sensor.status.cor}} alert  col s12 m6 l6">
           <div class="row">
             <div class="col s6">{{sensor.nomeEstabelemento}}</div>
             <div class="col s2">{{sensor.codigo}}</div>
