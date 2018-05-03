@@ -10,7 +10,7 @@ import { Usuario } from './../../entidades/usuario';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  usuario: Usuario = new Usuario()
+  usuario: Usuario = new Usuario();
 
   emailValido ; senhaValido; dadosInvalidos; loading = false;
 
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
                this.dadosInvalidos = true;
                this.loading = false;
            }
-       )
+       );
    }
 
   mostrar() {
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   validaCampo(campo) {
-    if (campo.name == "senha") {
+    if (campo.name === 'senha') {
       this.senhaValido = !campo.valid && campo.touched;
     } else {
       this.emailValido = !campo.valid && campo.touched;

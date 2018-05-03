@@ -12,7 +12,6 @@ import { DashGraficosComponent } from './dash-graficos/dash-graficos.component';
 import { GraficosPizzaComponent } from './graficos-pizza/graficos-pizza.component';
 import { GraficosLinhaComponent } from './graficos-linha/graficos-linha.component';
 import { SensorDetalhesComponent } from './sensor-detalhes/sensor-detalhes.component';
-import {MomentModule} from 'angular2-moment/moment.module';
 
 @NgModule({
   imports: [
@@ -21,8 +20,7 @@ import {MomentModule} from 'angular2-moment/moment.module';
     ComumModule,
     ChartModule,
     FormsModule,
-    FieldsetModule,
-    MomentModule
+    FieldsetModule
   ],
   declarations: [
     DashStatusComponent,

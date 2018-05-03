@@ -14,25 +14,25 @@ export class DashStatusComponent implements OnInit, OnDestroy {
   atualiza;
 
   loading = true;
-  erro = false
+  erro = false;
 
   constructor(private _dadosService: DadosService) { }
 
   ngOnInit() {
     this.monitora();
   }
-  ngOnDestroy(): void {    
+  ngOnDestroy(): void {
     console.log('Parando');
     clearTimeout(this.atualiza);
   }
 
   monitora() {
     this.loading = true;
-    this.erro = false
+    this.erro = false;
     this.listaSensores = [];
     this._dadosService.getSensores().subscribe(
       res => {
-        this.buscaDados(res['sensores'])
+        this.buscaDados(res['sensores']);
         this.loading = false;
       },
       error => this.erro = true

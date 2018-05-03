@@ -7,9 +7,9 @@ import { environment } from './../../environments/environment';
 export class EstabelecimentoService {
   private api = environment.apiUrl;
 
-  constructor(private _http:  HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
-  getLojas(){
+  getLojas() {
     return this._http.get(`${this.api}/estabelecimentos/todos`);
   }
 

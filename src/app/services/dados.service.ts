@@ -7,17 +7,17 @@ import { environment } from './../../environments/environment';
 export class DadosService {
   private api = environment.apiUrl;
 
-  constructor(private _http:  HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
-  getSensores(){
+  getSensores() {
     return this._http.get(`${this.api}/sensores/todos`);
   }
 
-  getDadoSensor(idSensor, qtd) {        
+  getDadoSensor(idSensor, qtd) {
     return this._http.get(`${this.api}/dados/sensor/${idSensor}/quantidade/${qtd}`);
   }
 
-  getDadoaSensorPorId(idSensor, qtd) {        
+  getDadoaSensorPorId(idSensor, qtd) {
     return this._http.get(`${this.api}/dados/sensor/graficos/${idSensor}/quantidade/${qtd}`);
   }
 

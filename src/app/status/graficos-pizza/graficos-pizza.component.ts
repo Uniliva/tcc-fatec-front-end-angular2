@@ -7,7 +7,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 })
 export class GraficosPizzaComponent implements OnInit {
 
-  @Input() dadosEnergia = {}
+  @Input() dadosEnergia = {};
   dados = [];
   data: any;
   options: any;

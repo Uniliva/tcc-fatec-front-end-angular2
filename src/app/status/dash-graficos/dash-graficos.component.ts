@@ -12,26 +12,25 @@ export class DashGraficosComponent implements OnInit, OnDestroy {
   inscricao: Subscription;
   inscricaoRota: Subscription;
   loading = true;
-  erro = false
+  erro = false;
   energia = {};
   estabelecimento = {};
   dados = {};
 
-  constructor(private dadosService: DadosService, private route: ActivatedRoute) {  }
+  constructor(private dadosService: DadosService, private route: ActivatedRoute) { }
 
   carrega(id: number) {
     this.inscricao = this.dadosService.getDadoaSensorPorId(id, 100).subscribe(
       dadosSensor => {
-        this.dados = dadosSensor['dados']
-        this.energia = dadosSensor['energia']
-        this.estabelecimento = dadosSensor['estabelecimento']
+        this.dados = dadosSensor['dados'];
+        this.energia = dadosSensor['energia'];
+        this.estabelecimento = dadosSensor['estabelecimento'];
         this.loading = false;
       },
       erro => this.erro = true);
   }
 
   ngOnInit() {
-  
     this.inscricaoRota = this.route.params.subscribe(params => this.carrega(params['id']));
   }
 

@@ -16,7 +16,7 @@ import { LoadingComponent } from './loading/loading.component';
   ],
   exports: [
     AlertaComponent,
-    PaginaNaoEncontradaComponent, 
+    PaginaNaoEncontradaComponent,
     LoadingComponent
   ]
 })

@@ -8,21 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dash-loja.component.css']
 })
 export class DashLojaComponent implements OnInit {
-  lojas:Estabelecimento 
+  lojas: Estabelecimento;
   loading = true;
-  erro = false
+  erro = false;
 
   constructor(private estabelecimentoService: EstabelecimentoService) { }
 
   ngOnInit() {
     this.loading = true;
-    this.erro = false
+    this.erro = false;
     this.estabelecimentoService.getLojas().subscribe(
-      res =>{
+      res => {
         this.lojas = res['estabelecimentos'];
         console.log(this.lojas);
         this.loading = false;
-      } ,
+      },
       error => this.erro = true
 
 
