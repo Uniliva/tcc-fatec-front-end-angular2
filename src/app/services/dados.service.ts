@@ -17,4 +17,8 @@ export class DadosService {
     return this._http.get(`${this.api}/dados/sensor/${idSensor}/quantidade/${qtd}`);
   }
 
+  getDadoaSensorPorId(idSensor, qtd) {        
+    return this._http.get(`${this.api}/dados/sensor/graficos/${idSensor}/quantidade/${qtd}`);
+  }
+
 }

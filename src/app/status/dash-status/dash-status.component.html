@@ -14,11 +14,21 @@
           </div>
           <div class="row">
             <div class="col s4">Energia: {{sensor.dados.temEnergia ? 'OK' : 'ERRO' }}</div>       
-            <div class="col s8">Data: {{sensor.dados.dataAtual | date: 'dd/MM/yyyy - h:mm:ss a' }}</div>   
+            <div class="col s8">Data: {{sensor.dados.dataAtual | date: 'dd/MM/yyyy - h:mm:ss a':'GMT+00:00' }}</div>   
           </div>
           <div class="row">
               <div class="col s12">{{sensor.status.msg}}</div>     
             </div>
         </div>
       </div>  
+</div>
+
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-6 ui-md-offset-4">
+      <br>
+        <app-loading [visivel]="loading && !erro" class="center"></app-loading>
+        <app-alerta [isVisivel]="erro" classeCor="vermelho">
+                <i class="material-icons">error</i>Não foi possivel carregar o status dos sensores!
+        </app-alerta>
+    </div>
 </div>

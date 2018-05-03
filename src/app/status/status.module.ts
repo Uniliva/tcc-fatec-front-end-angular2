@@ -4,15 +4,15 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {ChartModule} from 'primeng/chart';
 import {FieldsetModule} from 'primeng/fieldset';
-import {DropdownModule} from 'primeng/dropdown';
 
 import { StatusRoutingModule } from './status-routing.module';
 import { DashStatusComponent } from './dash-status/dash-status.component';
 import { ComumModule } from './../comum/comum.module';
 import { DashGraficosComponent } from './dash-graficos/dash-graficos.component';
-import { GraficosBarrasComponent } from './graficos-barras/graficos-barras.component';
 import { GraficosPizzaComponent } from './graficos-pizza/graficos-pizza.component';
 import { GraficosLinhaComponent } from './graficos-linha/graficos-linha.component';
+import { SensorDetalhesComponent } from './sensor-detalhes/sensor-detalhes.component';
+import {MomentModule} from 'angular2-moment/moment.module';
 
 @NgModule({
   imports: [
@@ -22,14 +22,14 @@ import { GraficosLinhaComponent } from './graficos-linha/graficos-linha.componen
     ChartModule,
     FormsModule,
     FieldsetModule,
-    DropdownModule
+    MomentModule
   ],
   declarations: [
     DashStatusComponent,
     DashGraficosComponent,
-    GraficosBarrasComponent,
     GraficosPizzaComponent,
-    GraficosLinhaComponent],
+    GraficosLinhaComponent,
+    SensorDetalhesComponent],
     providers: [DatePipe]
 })
 export class StatusModule { }

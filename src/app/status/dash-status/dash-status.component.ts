@@ -13,27 +13,35 @@ export class DashStatusComponent implements OnInit, OnDestroy {
   listaSensores = [];
   atualiza;
 
+  loading = true;
+  erro = false
+
   constructor(private _dadosService: DadosService) { }
 
   ngOnInit() {
     this.monitora();
   }
-  ngOnDestroy(): void {
-    console.log('destruiu');
+  ngOnDestroy(): void {    
+    console.log('Parando');
     clearTimeout(this.atualiza);
   }
 
   monitora() {
+    this.loading = true;
+    this.erro = false
+    this.listaSensores = [];
     this._dadosService.getSensores().subscribe(
-      res => this.buscaDados(res['sensores']),
-      error => console.log(`Aconteceu um erro: ${error}`)
+      res => {
+        this.buscaDados(res['sensores'])
+        this.loading = false;
+      },
+      error => this.erro = true
     );
-    console.log('executa');
+    console.log('Atualizando');
     this.atualiza = setTimeout(() => this.monitora(), 20000); // 2 minnutos -> 120000 //5- minutos -> 300000
   }
 
   buscaDados(sensores: Sensor[]) {
-    this.listaSensores = [];
     sensores.forEach(s => {
       this._dadosService.getDadoSensor(s.id, 1).subscribe(res => {
         s.dados = res['dados'][0];
@@ -48,7 +56,6 @@ export class DashStatusComponent implements OnInit, OnDestroy {
   }
 
   getStatus(sensor: Sensor): Status {
-    console.log(sensor.dados);
     const status = new Status();
     if (!sensor.dados.temEnergia) {
       status.popula('vermelho', 'Equipamento sem alimentação eletrica!');

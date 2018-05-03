@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./loading.component.css']
 })
 export class LoadingComponent implements OnInit {
-  @Input() visivel: Boolean
+  @Input() visivel: Boolean;
   constructor() { }
 
   ngOnInit() {

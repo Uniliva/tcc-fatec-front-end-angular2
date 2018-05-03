@@ -1,14 +1,23 @@
-<div class="row grafico">
-    <div class="col s12 m12 l12">
-  <app-graficos-linha></app-graficos-linha>
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-12 ui-lg-12">
+        <app-graficos-linha [dados]="dados" *ngIf="!loading"></app-graficos-linha>
     </div>
 </div>
 
-<div class="row">
-    <div class="col s12 m6 l6">
-        <app-graficos-barras></app-graficos-barras>
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-12 ui-lg-6">
+        <app-graficos-pizza [dadosEnergia]="energia" *ngIf="!loading"></app-graficos-pizza>
     </div>
-    <div class="col s12 m6 l6">
-        <app-graficos-pizza></app-graficos-pizza>
+    <div class="ui-g-12 ui-md-12 ui-lg-6">
+        <app-sensor-detalhes [estabelecimento]="estabelecimento" *ngIf="!loading"></app-sensor-detalhes>
+    </div>
+</div>
+
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-4 ui-md-offset-4">
+        <app-loading [visivel]="loading && !erro" class="center"></app-loading>
+        <app-alerta [isVisivel]="erro" classeCor="vermelho">
+                <i class="material-icons">error</i>Não foi possivel carregar os dados do sensor!
+        </app-alerta>
     </div>
 </div>

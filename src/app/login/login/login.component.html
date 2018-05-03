@@ -21,7 +21,7 @@
             <i class="material-icons prefix">account_circle</i>
             <input type="text" id="email" name="email" [(ngModel)]="usuario.email" email #email="ngModel"  (blur)="validaCampo(email)">
             <label for="email">E-mail</label>
-            <app-alerta [isVisivel]="emailValido" classeCor="vermelho">
+            <app-alerta [isVisivel] = "emailValido" classeCor="vermelho">
               E-mail é obrigatorio!
               </app-alerta>
           </div>
