@@ -1,3 +1,5 @@
+import { Estabelecimento } from './../../entidades/estabelecimento';
+import { EstabelecimentoService } from './../../services/estabelecimento.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dash-loja.component.css']
 })
 export class DashLojaComponent implements OnInit {
+  lojas:Estabelecimento 
+  loading = true;
+  erro = false
 
-  constructor() { }
+  constructor(private estabelecimentoService: EstabelecimentoService) { }
 
   ngOnInit() {
+    this.loading = true;
+    this.erro = false
+    this.estabelecimentoService.getLojas().subscribe(
+      res =>{
+        this.lojas = res['estabelecimentos'];
+        console.log(this.lojas);
+        this.loading = false;
+      } ,
+      error => this.erro = true
+
+
+    );
   }
 
 }

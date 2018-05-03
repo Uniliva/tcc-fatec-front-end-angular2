@@ -1,0 +1,12 @@
+.ajuste > div >{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px;
+    
+    
+}
+
+.negrito {
+    font-weight: bold;
+}

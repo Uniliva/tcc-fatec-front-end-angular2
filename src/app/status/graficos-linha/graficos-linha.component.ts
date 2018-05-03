@@ -38,7 +38,7 @@ export class GraficosLinhaComponent implements OnInit {
           backgroundColor: '',
           borderColor: '#324C5D',
           data: this.dadosGLine.reverse()
-        }
+        }       
       ]
     };
 
