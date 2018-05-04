@@ -6,6 +6,7 @@ import { LojaRoutingModule } from './loja-routing.module';
 import { DashLojaComponent } from './dash-loja/dash-loja.component';
 import { ComumModule } from './../comum/comum.module';
 import { EstabelecimentoService } from './../services/estabelecimento.service';
+import { DetalhesLojaComponent } from './detalhes-loja/detalhes-loja.component';
 
 
 
@@ -16,7 +17,7 @@ import { EstabelecimentoService } from './../services/estabelecimento.service';
     FieldsetModule,
     ComumModule
   ],
-  declarations: [DashLojaComponent],
+  declarations: [DashLojaComponent, DetalhesLojaComponent],
   providers: [EstabelecimentoService]
 })
 export class LojaModule { }
