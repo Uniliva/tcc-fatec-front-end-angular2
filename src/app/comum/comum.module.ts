@@ -1,3 +1,4 @@
+import { MaterializeModule } from 'angular2-materialize';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -7,7 +8,8 @@ import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MaterializeModule
   ],
   declarations: [
     AlertaComponent,

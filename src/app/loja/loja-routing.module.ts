@@ -5,7 +5,7 @@ import { DashLojaComponent } from './dash-loja/dash-loja.component';
 
 const routes: Routes = [
   {path: '', component: DashLojaComponent},
-  {path: 'detalhes', component: DetalhesLojaComponent}
+  {path: 'detalhes/:idloja', component: DetalhesLojaComponent}
 ];
 
 @NgModule({

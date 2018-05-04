@@ -13,4 +13,8 @@ export class EstabelecimentoService {
     return this._http.get(`${this.api}/estabelecimentos/todos`);
   }
 
+  getLojaporID(id: number) {
+    return this._http.get(`${this.api}/estabelecimentos/id/${id}`);
+  }
+
 }

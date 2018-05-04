@@ -1,8 +1,8 @@
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Usuario } from './../../entidades/usuario';
 import { AuthService } from './../../services/auth.service';
 import { UsuarioService } from './../../services/usuario.service';
 import { Router } from '@angular/router';
-import { Component, OnInit, EventEmitter } from '@angular/core';
-import { Usuario } from './../../entidades/usuario';
 
 @Component({
   selector: 'app-login',

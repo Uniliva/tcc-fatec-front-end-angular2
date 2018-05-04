@@ -14,7 +14,7 @@
           </div>
           <div class="row">
             <div class="col s4">Energia: {{sensor.dados.temEnergia ? 'OK' : 'ERRO' }}</div>       
-            <div class="col s8">Data: {{sensor.dados.dataAtual | date: 'dd/MM/yyyy - h:mm:ss a':'GMT+00:00' }}</div>   
+            <div class="col s8">Data: {{sensor.dados.dataAtual | date: 'dd/MM/yyyy - h:mm:ss a' }}</div>   
           </div>
           <div class="row">
               <div class="col s12">{{sensor.status.msg}}</div>     

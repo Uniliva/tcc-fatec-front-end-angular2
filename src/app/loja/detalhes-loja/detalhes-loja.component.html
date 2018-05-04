@@ -1,3 +1,49 @@
-<p>
-  detalhes-loja works!
-</p>
+<br/>
+<p-fieldset *ngIf="!loading">
+  <p-header class="valign-wrapper">
+    {{ loja.nome | uppercase}} &nbsp;&nbsp;
+    <a class="material-icons blue-text waves-effect waves-light  modal-trigger" href="#mLoja">toc</a>
+  </p-header>
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-3">
+      <span class="negrito">Endereço :</span> {{ loja.endereco }} &nbsp;&nbsp;
+    </div>
+    <div class="ui-g-12 ui-md-3">
+      <span class="negrito">Telefone :</span> {{ loja.telefone }} &nbsp;&nbsp;
+    </div>
+    <div class="ui-g-12 ui-md-3">
+      <span class="negrito">E-mail :</span> {{ loja.email }} &nbsp;&nbsp;
+    </div>
+    <div class="ui-g-12 ui-md-3">
+      <span class="negrito">QTD de sensores :</span> {{ loja.sensores.length }}
+      <br/>
+    </div>
+  </div>
+  <p-footer>
+  </p-footer>
+</p-fieldset>
+
+<div class="ui-g">
+  <div class="ui-g-12 ui-md-6
+     ui-md-offset-4">
+    <br>
+    <app-loading [visivel]="loading && !erro" class="center"></app-loading>
+    <app-alerta [isVisivel]="erro" classeCor="vermelho">
+      <i class="material-icons">error</i>Não foi possivel carregar dos dados da loja
+    </app-alerta>
+  </div>
+</div>
+
+
+<!-- Modal Structure -->
+<div id="mLoja" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <app-alterar-loja [loja]="loja"></app-alterar-loja>
+  </div>
+  <div class="modal-footer">
+    <a class="waves-effect waves-green btn-flat vermelho" (click)="closeModal()">Fechar</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat verde">Salvar</a>
+  </div>
+</div>
+
+{{loja | json}}

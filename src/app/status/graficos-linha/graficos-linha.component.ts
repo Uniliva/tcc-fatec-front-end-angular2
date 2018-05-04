@@ -25,19 +25,19 @@ export class GraficosLinhaComponent implements OnInit {
 
   ngOnInit() {
     this.dados.forEach(d => {
-      this.labelGLine.push(this.datePipe.transform(d.dataAtual, 'dd/MM - h:mm a', 'GMT+00:00'));
+      this.labelGLine.unshift(this.datePipe.transform(d.dataAtual, 'dd/MM - h:mm a'));
       this.dadosGLine.unshift(d.temperaturaAtual);
     });
 
     this.data = {
-      labels: this.labelGLine.reverse(),
+      labels: this.labelGLine,
       responsive: true,
       datasets: [
         {
           label: 'Dados do sensor',
           backgroundColor: '',
           borderColor: '#324C5D',
-          data: this.dadosGLine.reverse()
+          data: this.dadosGLine,
         }
       ]
     };

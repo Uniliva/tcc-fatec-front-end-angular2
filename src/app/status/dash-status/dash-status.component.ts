@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs/Subscription';
 import { Status } from './../../entidades/sensor';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DadosService } from './../../services/dados.service';
@@ -9,7 +10,7 @@ import { Sensor } from '../../entidades/sensor';
   styleUrls: ['./dash-status.component.css']
 })
 export class DashStatusComponent implements OnInit, OnDestroy {
-
+  inscricao: Subscription
   listaSensores = [];
   atualiza;
 
@@ -24,13 +25,14 @@ export class DashStatusComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     console.log('Parando');
     clearTimeout(this.atualiza);
+    this.inscricao.unsubscribe
   }
 
   monitora() {
     this.loading = true;
     this.erro = false;
     this.listaSensores = [];
-    this._dadosService.getSensores().subscribe(
+    this.inscricao = this._dadosService.getSensores().subscribe(
       res => {
         this.buscaDados(res['sensores']);
         this.loading = false;
