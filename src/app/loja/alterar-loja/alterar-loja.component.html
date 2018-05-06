@@ -1,11 +1,11 @@
 <div class="ui-g">
-  <form class="ui-g-12">  
-      <h5>Alterar dados da loja</h5>
-      <div class="divider"></div>
-      <br/>
-      <div class="ui-g">
+  <form class="ui-g-12">
+    <h5>Alterar dados da loja</h5>
+    <div class="divider"></div>
+    <br/>
+    <div class="ui-g">
       <div class="input-field ui-g-12 ui-md-2">
-        <input id="codigo" disabled class="validate"  type="text" [(ng-model)]="codigo">
+        <input id="codigo" disabled class="validate" type="text">
         <label for="codigo">Codigo</label>
       </div>
       <div class="input-field ui-g-12 ui-md-6">
@@ -13,9 +13,19 @@
         <label for="nome">Nome</label>
       </div>
       <div class="input-field ui-g-12 ui-md-4">
-          <input id="telefone" type="tel" class="validate">
-          <label for="telefone">Telefone</label>
-        </div>
+        <input id="telefone" type="tel" class="validate">
+        <label for="telefone">Telefone</label>
+      </div>
+    </div>
+    <div class="ui-g">
+      <div class="input-field ui-g-12 ui-md-6">
+        <input id="endereco" type="text" class="validate">
+        <label for="endereco">Endereço</label>
+      </div>
+      <div class="input-field ui-g-12 ui-md-6">
+        <input id="email" type="email" class="validate">
+        <label for="email">Email</label>
+      </div>
     </div>
   </form>
 </div>

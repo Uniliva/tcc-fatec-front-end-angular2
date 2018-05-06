@@ -1,3 +1,4 @@
+import { Sensor } from './../../entidades/sensor';
 
 import { Component, OnInit, OnDestroy, EventEmitter } from '@angular/core';
 import { MaterializeAction } from 'angular2-materialize';
@@ -16,10 +17,17 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
   inscricao: Subscription;
   inscricaoRota: Subscription;
   loja: Estabelecimento;
+  sensorSelecionado: Sensor;
   loading = true;
   erro = false;
+  modalActions = new EventEmitter<string | MaterializeAction>();
 
-  constructor(private estabelecimentoService: EstabelecimentoService,private route: ActivatedRoute) { }
+  constructor(private estabelecimentoService: EstabelecimentoService, private route: ActivatedRoute) { }
+
+  carregarSensor(sensor: Sensor) {
+    console.log(sensor);
+    this.sensorSelecionado = sensor;
+  }
 
   buscaLoja(id: number) {
     this.loading = true;
@@ -34,19 +42,17 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.inscricaoRota = this.route.params.subscribe(params => this.buscaLoja(params['idloja']));    
+    this.inscricaoRota = this.route.params.subscribe(params => this.buscaLoja(params['idloja']));
   }
 
   ngOnDestroy() {
-    this.inscricao.unsubscribe
-    this.inscricaoRota.unsubscribe
-
-    
+    this.inscricao.unsubscribe();
+    this.inscricaoRota.unsubscribe();
   }
 
-  modalActions = new EventEmitter<string|MaterializeAction>();
+
   closeModal() {
-    this.modalActions.emit({action:"modal",params:['close']});
+    this.modalActions.emit({ action: 'modal', params: ['close'] });
   }
 
 }
