@@ -5,5 +5,6 @@ export class Estabelecimento {
     endereco: string;
     telefone: string;
     email: string;
+    sensor: Sensor;
     sensores: Sensor[];
 }

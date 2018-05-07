@@ -1,5 +1,3 @@
-import { Sensor } from './../../entidades/sensor';
-
 import { Component, OnInit, OnDestroy, EventEmitter } from '@angular/core';
 import { MaterializeAction } from 'angular2-materialize';
 import { ActivatedRoute } from '@angular/router';
@@ -7,6 +5,8 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { EstabelecimentoService } from './../../services/estabelecimento.service';
 import { Estabelecimento } from './../../entidades/estabelecimento';
+import { Sensor } from './../../entidades/sensor';
+
 
 @Component({
   selector: 'app-detalhes-loja',
@@ -21,11 +21,12 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
   loading = true;
   erro = false;
   modalActions = new EventEmitter<string | MaterializeAction>();
+  msgAtualizaLoja = false;
+  msgAtualizaSensor = false;
 
   constructor(private estabelecimentoService: EstabelecimentoService, private route: ActivatedRoute) { }
 
   carregarSensor(sensor: Sensor) {
-    console.log(sensor);
     this.sensorSelecionado = sensor;
   }
 
@@ -39,6 +40,15 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
       },
       error => this.erro = true
     );
+  }
+
+  atualizaLoja(loja: Estabelecimento) {
+ 
+    console.log('atualiza loja');
+  }
+
+  atualizaSensor(sensor: Sensor) {
+    console.log('atualiza Sensor :' + sensor.codigo);
   }
 
   ngOnInit() {
