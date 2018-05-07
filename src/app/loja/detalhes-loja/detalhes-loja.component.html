@@ -1,41 +1,42 @@
 <br/>
 <div *ngIf="!loading">
   <p-fieldset>
-    <p-header class="valign-wrapper">
+      <p-header class="valign-wrapper">  <i class="material-icons">store_mall_directory</i> &nbsp;&nbsp;
       {{ loja.nome | uppercase}} &nbsp;&nbsp;
       <a class="material-icons blue-text waves-effect waves-light  modal-trigger" href="#mLoja">toc</a>
     </p-header>
     <div class="ui-g">
       <div class="ui-g-12 ui-md-3">
-        <span class="negrito">Endereço :</span> {{ loja.endereco }} &nbsp;&nbsp;
+        <span class="negrito">Endereço:</span> {{ loja.endereco }} &nbsp;&nbsp;
       </div>
       <div class="ui-g-12 ui-md-3">
-        <span class="negrito">Telefone :</span> {{ loja.telefone }} &nbsp;&nbsp;
+        <span class="negrito">Telefone:</span> {{ loja.telefone }} &nbsp;&nbsp;
       </div>
-      <div class="ui-g-12 ui-md-3">
-        <span class="negrito">E-mail :</span> {{ loja.email }} &nbsp;&nbsp;
+      <div class="ui-g-12 ui-md-4">
+        <span class="negrito">E-mail:</span> {{ loja.email }} &nbsp;&nbsp;
       </div>
-      <div class="ui-g-12 ui-md-3">
-        <span class="negrito">QTD de sensores :</span> {{ loja.sensores.length }}
+      <div class="ui-g-12 ui-md-2">
+        <span class="negrito">QTD de sensores:</span> {{ loja.sensores.length }}
         <br/>
       </div>
     </div>
     <p-footer>
       <br/>
+      <div class="divider"></div>
       <div class="row">
         <div *ngFor="let sensor of loja.sensores">
-          <p-fieldset class=" col s12 m6 l6">
-            <p-header class="valign-wrapper">
+          <p-fieldset class=" col s12 m6 l6 ajuste">
+              <p-header class="valign-wrapper">  <i class="material-icons">developer_board</i> &nbsp;&nbsp;
               {{sensor.decricao | uppercase}} &nbsp;&nbsp;
               <a class="material-icons blue-text waves-effect waves-light  modal-trigger" href="#mSensor" (click)="carregarSensor(sensor)">toc</a>
             </p-header>
-            <span class="negrito">Codigo :</span> {{ sensor.codigo }}
+            <span class="negrito">Codigo:</span> {{ sensor.codigo }}
             <br/>
-            <span class="negrito">Descrição :</span> {{ sensor.decricao }}
+            <span class="negrito">Descrição:</span> {{ sensor.decricao }}
             <br/>
-            <span class="negrito">T-Min :</span> {{ sensor.temperaturaMin }}ºC
+            <span class="negrito">T-Min:</span> {{ sensor.temperaturaMin }}ºC
             <br/>
-            <span class="negrito">T-Max :</span> {{ sensor.temperaturaMax }}ºC
+            <span class="negrito">T-Max:</span> {{ sensor.temperaturaMax }}ºC
             <br/>
           </p-fieldset>
 
@@ -44,10 +45,28 @@
     </p-footer>
 
 
-  
-    
-    
-  
+    <!-- Modal Structure -->
+    <div id="mLoja" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+      <div class="modal-content">
+        <app-alterar-loja [loja]="loja"></app-alterar-loja>
+      </div>
+      <div class="modal-footer">
+        <a class="waves-effect waves-green btn-flat vermelho" (click)="closeModal()">Fechar</a>
+        <a class="modal-action modal-close waves-effect waves-green btn-flat verde">Salvar</a>
+      </div>
+    </div>
+
+
+    <!-- Modal Structure -->
+    <div id="mSensor" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+      <div class="modal-content">
+        <app-alterar-sensor [sensor]="sensorSelecionado"></app-alterar-sensor>
+      </div>
+      <div class="modal-footer">
+        <a class="waves-effect waves-green btn-flat vermelho" (click)="closeModal()">Fechar</a>
+        <a class="modal-action modal-close waves-effect waves-green btn-flat verde">Salvar</a>
+      </div>
+    </div>
 
   </p-fieldset>
 
@@ -65,29 +84,3 @@
     </app-alerta>
   </div>
 </div>
-
-
-
-
-<!-- Modal Structure -->
-<div id="mLoja" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
-    <div class="modal-content">
-      <app-alterar-loja [loja]="loja"></app-alterar-loja>
-    </div>
-    <div class="modal-footer">
-      <a class="waves-effect waves-green btn-flat vermelho" (click)="closeModal()">Fechar</a>
-      <a class="modal-action modal-close waves-effect waves-green btn-flat verde">Salvar</a>
-    </div>
-  </div>
-  
-  
-  <!-- Modal Structure -->
-  <div id="mSensor" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
-      <div class="modal-content">
-        <app-alterar-sensor [sensor]="sensorSelecionado"></app-alterar-sensor>
-      </div>
-      <div class="modal-footer">
-        <a class="waves-effect waves-green btn-flat vermelho" (click)="closeModal()">Fechar</a>
-        <a class="modal-action modal-close waves-effect waves-green btn-flat verde">Salvar</a>
-      </div>
-    </div>

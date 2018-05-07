@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./alterar-sensor.component.css']
 })
 export class AlterarSensorComponent implements OnInit {
-  @Input() sensor: Sensor;
+  @Input() sensor: Sensor=new Sensor();
 
   constructor() { }
 

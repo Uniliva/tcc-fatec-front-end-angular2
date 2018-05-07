@@ -17,7 +17,7 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
   inscricao: Subscription;
   inscricaoRota: Subscription;
   loja: Estabelecimento;
-  sensorSelecionado: Sensor;
+  sensorSelecionado: Sensor = new Sensor();
   loading = true;
   erro = false;
   modalActions = new EventEmitter<string | MaterializeAction>();

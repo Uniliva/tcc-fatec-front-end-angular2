@@ -1,27 +1,26 @@
 <div class="ui-g">
   <form class="ui-g-12">
-    <h5>Alterar dados do sensor</h5>
+    <h5 class="valign-wrapper">
+      <i class="material-icons">create</i> &nbsp; Alterar dados do sensor</h5>
     <div class="divider"></div>
     <br/>
     <div class="ui-g">
       <div class="input-field ui-g-12 ui-md-2">
-        <input id="codigo" disabled class="validate" [(ngModel)]="sensor.codigo" type="text">
+        <input id="codigo" name="codigo" type="text" placeholder="" disabled class="validate" [(ngModel)]="sensor.codigo">
         <label for="codigo">Codigo</label>
       </div>
       <div class="input-field ui-g-12 ui-md-6">
-        <input id="descricao" type="text" class="validate">
-        <label for="descricao">Descrição</label>
+        <input id="decricao" name="decricao" type="text" placeholder="" class="validate" [(ngModel)]="sensor.decricao">
+        <label for="decricao" class="active">Descrição</label>
       </div>
-      <div class="input-field ui-g-12 ui-md-2">
-        <input id="tmin" type="text" class="validate">
+      <div class="input-field ui-g-6 ui-md-2">
+        <input id="tmin" name="temperaturaMin" type="text" placeholder="" class="validate" [(ngModel)]="sensor.temperaturaMin">
         <label for="tmin">Temperatura mínima</label>
       </div>
-      <div class="input-field ui-g-12 ui-md-2">
-        <input id="tmax" type="text" class="validate">
+      <div class="input-field ui-g-6 ui-md-2">
+        <input id="tmax" name="temperaturaMax" type="text" placeholder="" class="validate" [(ngModel)]="sensor.temperaturaMax">
         <label for="tmax">Temperatura Maxíma</label>
       </div>
     </div>
   </form>
 </div>
-
-{{sensor | json}} teste

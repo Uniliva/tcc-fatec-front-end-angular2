@@ -1,5 +1,5 @@
 <p-fieldset>
-    <p-header>Dados do estabelecimento</p-header>  
+    <p-header class="valign-wrapper">  <i class="material-icons">store_mall_directory</i> &nbsp;&nbsp;Dados da loja</p-header>  
     <div >  
       <span class="negrito">Nome :</span> {{ estabelecimento.nome }} <br/>
       <span class="negrito">Endereço :</span> {{ estabelecimento.endereco }} <br/>
@@ -7,7 +7,7 @@
       <span class="negrito">E-mail :</span> {{ estabelecimento.email }} <br/>
       <br/>
       <p-fieldset>
-          <p-header>Dados do sensor</p-header>  
+          <p-header class="valign-wrapper">  <i class="material-icons">developer_board</i> &nbsp;&nbsp;Dados do sensor</p-header>  
       <span class="negrito">Codigo :</span>  {{ estabelecimento.sensor.codigo }} <br/>
       <span class="negrito">Descrição :</span> {{ estabelecimento.sensor.decricao }} <br/>
       <span class="negrito">T-Min :</span> {{ estabelecimento.sensor.temperaturaMin }}ºC  <br/>

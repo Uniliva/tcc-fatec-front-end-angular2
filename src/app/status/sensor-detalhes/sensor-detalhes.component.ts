@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Estabelecimento } from '../../entidades/estabelecimento';
 
 @Component({
   selector: 'app-sensor-detalhes',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SensorDetalhesComponent implements OnInit {
 
-  @Input () estabelecimento = {};
+  @Input () estabelecimento : Estabelecimento= new Estabelecimento();
 
   constructor() { }
 

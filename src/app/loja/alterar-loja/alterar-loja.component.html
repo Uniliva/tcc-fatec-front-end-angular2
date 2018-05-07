@@ -1,31 +1,32 @@
 <div class="ui-g">
-  <form class="ui-g-12">
-    <h5>Alterar dados da loja</h5>
+  <form class="ui-g-12">     
+    <h5  class="valign-wrapper"> <i class="material-icons">create</i> &nbsp; Alterar dados da loja</h5>
     <div class="divider"></div>
     <br/>
     <div class="ui-g">
       <div class="input-field ui-g-12 ui-md-2">
-        <input id="codigo" disabled class="validate" type="text">
+        <input id="codigo" name="idEstabelecimento"   type="text"  placeholder="" class="validate" disabled [(ngModel)]="loja.idEstabelecimento">
         <label for="codigo">Codigo</label>
       </div>
       <div class="input-field ui-g-12 ui-md-6">
-        <input id="nome" type="text" class="validate">
+        <input id="nome" name="nome" type="text" placeholder="" class="validate"  [(ngModel)]="loja.nome">
         <label for="nome">Nome</label>
       </div>
       <div class="input-field ui-g-12 ui-md-4">
-        <input id="telefone" type="tel" class="validate">
+        <input id="telefone" name="telefone" type="tel" placeholder="" class="validate" [(ngModel)]="loja.telefone">
         <label for="telefone">Telefone</label>
       </div>
     </div>
     <div class="ui-g">
       <div class="input-field ui-g-12 ui-md-6">
-        <input id="endereco" type="text" class="validate">
+        <input id="endereco" name="endereco" type="text" placeholder="" class="validate" [(ngModel)]="loja.endereco">
         <label for="endereco">Endereço</label>
       </div>
       <div class="input-field ui-g-12 ui-md-6">
-        <input id="email" type="email" class="validate">
+        <input id="email" name="email" type="email" placeholder="" class="validate" [(ngModel)]="loja.email">
         <label for="email">Email</label>
       </div>
     </div>
   </form>
 </div>
+{{ loja | json}}
