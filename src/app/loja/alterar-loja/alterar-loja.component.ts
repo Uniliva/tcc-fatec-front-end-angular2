@@ -1,5 +1,6 @@
-import { Estabelecimento } from './../../entidades/estabelecimento';
 import { Component, OnInit, Input } from '@angular/core';
+
+import { Estabelecimento } from './../../entidades/estabelecimento';
 
 @Component({
   selector: 'app-alterar-loja',
@@ -8,8 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AlterarLojaComponent implements OnInit {
 
-  @Input() loja : Estabelecimento
-  codigo=10
+  @Input() loja: Estabelecimento = new Estabelecimento();
+  codigo = 10;
 
 
   constructor() {

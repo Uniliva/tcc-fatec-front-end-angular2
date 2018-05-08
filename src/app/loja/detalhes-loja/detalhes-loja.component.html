@@ -1,9 +1,9 @@
 <br/>
 <div *ngIf="!loading">
   <p-fieldset>
-      <p-header class="valign-wrapper">  <i class="material-icons">store_mall_directory</i> &nbsp;&nbsp;
-      {{ loja.nome | uppercase}} &nbsp;&nbsp;
-      <a class="material-icons blue-text waves-effect waves-light  modal-trigger" href="#mLoja">toc</a>
+    <p-header class="valign-wrapper">
+      <i class="material-icons">store_mall_directory</i> &nbsp;&nbsp; {{ loja.nome | uppercase}} &nbsp;&nbsp;
+      <a class="material-icons blue-text waves-effect waves-light  modal-trigger" href="#mLoja" (click)="limpaMsg()">toc</a>
     </p-header>
     <div class="ui-g">
       <div class="ui-g-12 ui-md-3">
@@ -26,8 +26,8 @@
       <div class="row">
         <div *ngFor="let sensor of loja.sensores">
           <p-fieldset class=" col s12 m6 l6 ajuste">
-              <p-header class="valign-wrapper">  <i class="material-icons">developer_board</i> &nbsp;&nbsp;
-              {{sensor.decricao | uppercase}} &nbsp;&nbsp;
+            <p-header class="valign-wrapper">
+              <i class="material-icons">developer_board</i> &nbsp;&nbsp; {{sensor.decricao | uppercase}} &nbsp;&nbsp;
               <a class="material-icons blue-text waves-effect waves-light  modal-trigger" href="#mSensor" (click)="carregarSensor(sensor)">toc</a>
             </p-header>
             <span class="negrito">Codigo:</span> {{ sensor.codigo }}
@@ -48,29 +48,30 @@
     <!-- Modal Structure -->
     <div id="mLoja" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
       <div class="modal-content">
-          <app-alerta [isVisivel]="false"  classeCor="verde">
-              Loja Atualizada
-               </app-alerta>
-        <app-alterar-loja [loja]="loja"></app-alterar-loja>
-        {{loja |json}}
+        <app-alerta [isVisivel]="msgLoja.ativo" [classeCor]="msgLoja.cor">
+          {{msgLoja.msg}}
+        </app-alerta>
+        <app-alterar-loja [loja]="loja"></app-alterar-loja>        
       </div>
       <div class="modal-footer">
         <a class="waves-effect waves-green btn-flat vermelho" (click)="closeModal()">Fechar</a>
-        <a class="modal-action waves-effect waves-green btn-flat verde" (click)="atualizaLoja(loja)">Salvar</a>
+        <a class="modal-action waves-effect waves-green btn-flat verde" *ngIf="!msgLoja.ativo"  (click)="atualizaLoja(loja)">Salvar</a>        
       </div>
     </div>
-
 
 
 
     <!-- Modal Structure -->
     <div id="mSensor" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
       <div class="modal-content">
+          <app-alerta [isVisivel]="msgSensor.ativo" [classeCor]="msgSensor.cor">
+              {{msgSensor.msg}}
+            </app-alerta>
         <app-alterar-sensor [sensor]="sensorSelecionado"></app-alterar-sensor>
       </div>
       <div class="modal-footer">
         <a class="waves-effect waves-green btn-flat vermelho" (click)="closeModal()">Fechar</a>
-        <a class="modal-action waves-effect waves-green btn-flat verde"(click)="atualizaSensor(sensorSelecionado)">Salvar</a>
+        <a class="modal-action waves-effect waves-green btn-flat verde" *ngIf="!msgSensor.ativo"  (click)="atualizaSensor(sensorSelecionado)">Salvar</a>
       </div>
     </div>
 

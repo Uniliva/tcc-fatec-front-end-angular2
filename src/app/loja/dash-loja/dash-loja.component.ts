@@ -30,9 +30,9 @@ export class DashLojaComponent implements OnInit, OnDestroy {
 
     );
   }
-  
+
   ngOnDestroy() {
-    this.inscricao.unsubscribe
+    this.inscricao.unsubscribe();
   }
 
 }

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { EstabelecimentoService } from './../../services/estabelecimento.service';
+import { SensorService } from './../../services/sensor.service';
 import { Estabelecimento } from './../../entidades/estabelecimento';
 import { Sensor } from './../../entidades/sensor';
 
@@ -21,12 +22,14 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
   loading = true;
   erro = false;
   modalActions = new EventEmitter<string | MaterializeAction>();
-  msgAtualizaLoja = false;
-  msgAtualizaSensor = false;
+  msgLoja = this.msg('', false, '');
+  msgSensor = this.msg('', false, '');
 
-  constructor(private estabelecimentoService: EstabelecimentoService, private route: ActivatedRoute) { }
+  constructor(private estabelecimentoService: EstabelecimentoService,
+    private sensorService: SensorService, private route: ActivatedRoute) { }
 
   carregarSensor(sensor: Sensor) {
+    this.msgSensor = this.msg('', false, '');
     this.sensorSelecionado = sensor;
   }
 
@@ -36,6 +39,7 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
     this.inscricao = this.estabelecimentoService.getLojaporID(id).subscribe(
       res => {
         this.loja = res['estabelecimento'];
+        console.log(this.loja);
         this.loading = false;
       },
       error => this.erro = true
@@ -43,12 +47,17 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
   }
 
   atualizaLoja(loja: Estabelecimento) {
- 
-    console.log('atualiza loja');
+    this.estabelecimentoService.atualizaLoja(loja).subscribe(
+      res => this.msgLoja = this.msg('Loja atualizado com sucesso', true, 'verde'),
+      error => this.msgLoja = this.msg('Não foi possivel atualizar a loja', true, 'vermelho')
+    );
   }
 
   atualizaSensor(sensor: Sensor) {
-    console.log('atualiza Sensor :' + sensor.codigo);
+    this.sensorService.atualizaSensor(sensor).subscribe(
+      res => this.msgSensor = this.msg('Sensor atualizado com sucesso', true, 'verde'),
+      error => this.msgSensor = this.msg('Não foi possivel atualizar o Sensor', true, 'vermelho')
+    );
   }
 
   ngOnInit() {
@@ -60,9 +69,17 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
     this.inscricaoRota.unsubscribe();
   }
 
+  limpaMsg() {
+    this.msgLoja = this.msg('', false, '');
+  }
+
 
   closeModal() {
     this.modalActions.emit({ action: 'modal', params: ['close'] });
+  }
+
+  msg(msg: string, ativo: boolean, cor: string) {
+    return { msg: msg, ativo: ativo, cor: cor };
   }
 
 }

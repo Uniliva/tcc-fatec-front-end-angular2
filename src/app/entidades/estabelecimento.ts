@@ -1,6 +1,6 @@
 import { Sensor } from './sensor';
 export class Estabelecimento {
-    idEstabelecimento: Number;
+    id: Number;
     nome: string;
     endereco: string;
     telefone: string;

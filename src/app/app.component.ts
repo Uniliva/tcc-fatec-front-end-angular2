@@ -1,5 +1,6 @@
+import { MaterializeAction } from 'angular2-materialize';
 import { AuthService } from './services/auth.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
 
@@ -11,6 +12,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class AppComponent implements  OnInit, OnDestroy {
   inscricao: Subscription;
   mostrarMenu: Boolean = true;
+  sideNavActions = new EventEmitter<any|MaterializeAction>();
 
   constructor(private authService: AuthService) { }
 
@@ -23,4 +25,11 @@ export class AppComponent implements  OnInit, OnDestroy {
     ngOnDestroy() {
       this.inscricao.unsubscribe();
     }
+
+    closeSideNav() {
+            this.sideNavActions.emit({action: 'sideNav', params: ['hide']});
+    }
+
+
+
 }

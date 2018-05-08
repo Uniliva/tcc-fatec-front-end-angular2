@@ -1,9 +1,7 @@
-<!-- inicio menu-->
-<nav *ngIf="mostrarMenu">
-  <div class="container z-depth-5 amarelo">
-    <div class="nav-wrapper">
+<nav id="menu-painel" class="z-depth-3" role="navigation">
+  <div class="nav-wrapper container">    
       <a class="brand-logo">U-Monitor</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul class="right hide-on-med-and-down">
         <li routerLinkActive="active">
           <a routerLink="/status">
             <i class="material-icons left">loop</i>STATUS</a>
@@ -21,9 +19,35 @@
             <i class="material-icons left red-text">exit_to_app</i>LOGOUT</a>
         </li>
       </ul>
+
+      <ul id="slide-out" class="side-nav" (click)="closeSideNav()">
+          <a class="azul">U-Monitor</a>
+        <li routerLinkActive="active">
+          <a routerLink="/status">
+            <i class="material-icons left">loop</i>STATUS</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="lojas">
+            <i class="material-icons left">store_mall_directory</i>LOJAS</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="relatorio">
+            <i class="material-icons left">assignment</i>RELATÓRIOS</a>
+        </li>
+        <li>
+          <a>
+            <i class="material-icons left red-text">exit_to_app</i>LOGOUT</a>
+        </li>
+      </ul>
+
+      <a materialize="sideNav" [materializeParams]="[{edge: right,draggable: true}]" [materializeActions]="sideNavActions"
+      data-activates="slide-out" class="sidebar-collapse hide-on-large-only white-text">
+       <i class="small material-icons">menu</i>
+   </a>
+
     </div>
-  </div>
 </nav>
+
 <!-- Fim menu-->
 <div class="container">
   <router-outlet></router-outlet>

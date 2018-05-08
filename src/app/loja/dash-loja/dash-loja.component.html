@@ -1,7 +1,7 @@
 
 <div class="ui-g">
     <div class="ui-g-12 ui-md-6" *ngFor="let loja of lojas" >
-        <p-fieldset  [routerLink]="['detalhes',loja.idEstabelecimento]">
+        <p-fieldset  [routerLink]="['detalhes',loja.id]">
             <p-header class="valign-wrapper">  <i class="material-icons">store_mall_directory</i> &nbsp;&nbsp;{{loja.nome | uppercase}}</p-header>  
             <span class="negrito">Nome :</span> {{ loja.nome }} <br/>
             <span class="negrito">Endereço :</span> {{ loja.endereco }} <br/>

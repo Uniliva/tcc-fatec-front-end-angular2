@@ -1,15 +1,15 @@
 import { Dados } from './dados';
 
 export class Sensor {
-    id: number;
-    codigo: String;
-    decricao: String;
-    temperaturaMin: number;
-    temperaturaMax: number;
-    idEstabelecimento: Number;
-    enderecoEstabelemento: String;
-    nomeEstabelemento: String;
-    status: Status;
+    id;
+    codigo;
+    decricao;
+    temperaturaMin;
+    temperaturaMax;
+    idEstabelecimento;
+    enderecoEstabelemento;
+    nomeEstabelemento;
+    status;
     dados: Dados;
 
 }

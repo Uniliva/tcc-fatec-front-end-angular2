@@ -30,7 +30,8 @@ registerLocaleData(localePt, 'pt-BR');
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MaterializeModule
 
   ],
   providers: [
