@@ -9,26 +9,31 @@ import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao
 import { LoadingComponent } from './loading/loading.component';
 import { LojaFormComponent } from './loja-form/loja-form.component';
 import { SensorFormComponent } from './sensor-form/sensor-form.component';
+import { MenuComponent } from './menu/menu.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterializeModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   declarations: [
     AlertaComponent,
     PaginaNaoEncontradaComponent,
     LoadingComponent,
     LojaFormComponent,
-    SensorFormComponent
+    SensorFormComponent,
+    MenuComponent,
   ],
   exports: [
     AlertaComponent,
     PaginaNaoEncontradaComponent,
     LoadingComponent,
     LojaFormComponent,
-    SensorFormComponent
+    SensorFormComponent,
+    MenuComponent
   ]
 })
 export class ComumModule { }

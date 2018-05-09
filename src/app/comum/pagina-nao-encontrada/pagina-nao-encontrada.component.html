@@ -7,12 +7,29 @@
   <br/>
   <div class="divider"></div>
   <br/>
-  <br/>
-  <p class=" flow-text">
-    Clique no botão abaixo para retornar a tela de login...
-  </p>
-  <br/>
-  <a class="btn-floating btn-large waves-effect waves-light azul">
-    <i class="material-icons">reply</i>
-  </a>
+  <br/> {{logado}}
+  <div [ngSwitch]="logado">
+    <div *ngSwitchCase="true">
+      <p class=" flow-text">
+        Clique no botão abaixo para retornar a tela de status
+      </p>
+      <br/>
+      <a routerLink="/status" class="btn-floating btn-large waves-effect waves-light azul">
+        <i class="material-icons">reply</i>
+      </a>
+    </div>
+    <div *ngSwitchCase="false">
+      <p class=" flow-text">
+        Clique no botão abaixo para retornar a tela de login...
+      </p>
+      <br/>
+      <a routerLink="/login" class="btn-floating btn-large waves-effect waves-light azul">
+        <i class="material-icons">reply</i>
+      </a>
+    </div>
+
+
+  </div>
+
+
 </div>

@@ -10,7 +10,7 @@ import { Sensor } from '../../entidades/sensor';
   styleUrls: ['./dash-status.component.css']
 })
 export class DashStatusComponent implements OnInit, OnDestroy {
-  inscricao: Subscription
+  inscricao: Subscription;
   listaSensores = [];
   atualiza;
 
@@ -25,7 +25,7 @@ export class DashStatusComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     console.log('Parando');
     clearTimeout(this.atualiza);
-    this.inscricao.unsubscribe
+    this.inscricao.unsubscribe();
   }
 
   monitora() {

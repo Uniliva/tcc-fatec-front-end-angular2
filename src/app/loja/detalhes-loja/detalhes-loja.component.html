@@ -55,7 +55,7 @@
       </div>
       <div class="modal-footer">
         <a class="waves-effect waves-green btn-flat vermelho" (click)="closeModal()">Fechar</a>
-        <a class="modal-action waves-effect waves-green btn-flat verde" *ngIf="!msgLoja.ativo"  (click)="atualizaLoja(loja)">Salvar</a>        
+        <a class="modal-action waves-effect waves-green btn-flat verde" *ngIf="!msgLoja.ativo" (click)="atualizaLoja(loja)">Salvar</a>        
       </div>
     </div>
 
@@ -67,11 +67,11 @@
           <app-alerta [isVisivel]="msgSensor.ativo" [classeCor]="msgSensor.cor">
               {{msgSensor.msg}}
             </app-alerta>
-        <app-sensor-form [sensor]="sensorSelecionado" titulo="Alterar dados do sensor" ></app-sensor-form>
+        <app-sensor-form [sensor]="sensorSelecionado" titulo="Alterar dados do sensor"></app-sensor-form>
       </div>
       <div class="modal-footer">
         <a class="waves-effect waves-green btn-flat vermelho" (click)="closeModal()">Fechar</a>
-        <a class="modal-action waves-effect waves-green btn-flat verde" *ngIf="!msgSensor.ativo"  (click)="atualizaSensor(sensorSelecionado)">Salvar</a>
+        <a class="modal-action waves-effect waves-green btn-flat verde" *ngIf="!msgSensor.ativo" (click)="atualizaSensor(sensorSelecionado)">Salvar</a>
       </div>
     </div>
 

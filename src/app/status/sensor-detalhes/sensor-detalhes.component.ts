@@ -8,7 +8,7 @@ import { Estabelecimento } from '../../entidades/estabelecimento';
 })
 export class SensorDetalhesComponent implements OnInit {
 
-  @Input () estabelecimento : Estabelecimento= new Estabelecimento();
+  @Input() estabelecimento: Estabelecimento = new Estabelecimento();
 
   constructor() { }
 

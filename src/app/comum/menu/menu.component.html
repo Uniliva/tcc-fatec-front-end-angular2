@@ -1,0 +1,49 @@
+<nav id="menu-painel" class="z-depth-3" role="navigation" *ngIf="exibir" >
+    <div class="nav-wrapper container">    
+        <a class="brand-logo">U-Monitor</a>
+        <ul class="right hide-on-med-and-down">
+          <li routerLinkActive="active">
+            <a routerLink="/status">
+              <i class="material-icons left">loop</i>STATUS</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/lojas">
+              <i class="material-icons left">store_mall_directory</i>LOJAS</a>
+          </li>
+          <li routerLinkActive="active">
+              <a routerLink="/configuracao">
+                <i class="material-icons left">toc</i>CONFIGURAÇÕES</a>
+          </li>
+          <li>
+              <a class="vermelho-text" (click)="sair()">
+              <i class="material-icons left">exit_to_app</i>LOGOUT</a>
+          </li>
+        </ul>
+  
+        <ul id="slide-out" class="side-nav" (click)="closeSideNav()">
+            <a class="azul">U-Monitor</a>
+          <li routerLinkActive="active">
+            <a routerLink="/status">
+              <i class="material-icons left">loop</i>STATUS</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/lojas">
+              <i class="material-icons left">store_mall_directory</i>LOJAS</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/configuracao">
+              <i class="material-icons left">toc</i>CONFIGURAÇÕES</a>
+          </li>
+          <li>
+            <a class="vermelho-text"  (click)="sair()">
+              <i class="material-icons left">exit_to_app</i>LOGOUT</a>
+          </li>
+        </ul>
+  
+        <a materialize="sideNav" [materializeParams]="[{edge: right,draggable: true}]" [materializeActions]="sideNavActions"
+        data-activates="slide-out" class="sidebar-collapse hide-on-large-only white-text">
+         <i class="small material-icons">menu</i>
+     </a>
+  
+      </div>
+  </nav>

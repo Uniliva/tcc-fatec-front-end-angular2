@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth-guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { ComumModule } from './comum/comum.module';
@@ -13,9 +14,9 @@ import { MaterializeModule } from 'angular2-materialize';
 import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
-import { AuthService } from './services/auth.service';
 import { UsuarioService } from './services/usuario.service';
 import { DadosService } from './services/dados.service';
+import { AuthService } from './services/auth.service';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -37,6 +38,7 @@ registerLocaleData(localePt, 'pt-BR');
   providers: [
     UsuarioService,
     AuthService,
+    AuthGuard,
     DadosService,
     {
       provide: LOCALE_ID,

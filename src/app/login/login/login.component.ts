@@ -16,8 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService, private usuarioService: UsuarioService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   fazerLogin() {
     this.loading = true;
@@ -25,6 +24,7 @@ export class LoginComponent implements OnInit {
            res => {
                this.authService.mostrarMenuEmitter.emit(true);
                this.router.navigate(['/status']);
+               localStorage.setItem('user-status',  'LOGADO');
            },
            error => {
                this.authService.mostrarMenuEmitter.emit(false);

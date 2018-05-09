@@ -19,6 +19,7 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
   inscricaoRota: Subscription;
   loja: Estabelecimento;
   sensorSelecionado: Sensor = new Sensor();
+  sensorValida: Sensor = new Sensor();
   loading = true;
   erro = false;
   modalActions = new EventEmitter<string | MaterializeAction>();
@@ -31,7 +32,9 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
   carregarSensor(sensor: Sensor) {
     this.msgSensor = this.msg('', false, '');
     this.sensorSelecionado = sensor;
+    this.sensorValida = sensor;
   }
+
 
   buscaLoja(id: number) {
     this.loading = true;

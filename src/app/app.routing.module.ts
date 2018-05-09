@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth-guard';
 import { ComumModule } from './comum/comum.module';
 import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core';
@@ -9,9 +10,9 @@ import { LoginComponent } from './login/login/login.component';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
-    { path: 'status', loadChildren: 'app/status/status.module#StatusModule' },
-    { path: 'lojas', loadChildren: 'app/loja/loja.module#LojaModule' },
-    { path: 'configuracao', loadChildren: 'app/configuracao/configuracao.module#ConfiguracaoModule' },
+    { path: 'status', loadChildren: 'app/status/status.module#StatusModule', canActivate: [ AuthGuard ] },
+    { path: 'lojas', loadChildren: 'app/loja/loja.module#LojaModule', canActivate: [ AuthGuard ]  },
+    { path: 'configuracao', loadChildren: 'app/configuracao/configuracao.module#ConfiguracaoModule' , canActivate: [ AuthGuard ] },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: '**', component: PaginaNaoEncontradaComponent }
 ];
