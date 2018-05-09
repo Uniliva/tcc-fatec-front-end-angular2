@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashRelatorioComponent } from './dash-relatorio.component';
+import { LojaFormComponent } from './loja-form.component';
 
-describe('DashRelatorioComponent', () => {
-  let component: DashRelatorioComponent;
-  let fixture: ComponentFixture<DashRelatorioComponent>;
+describe('LojaFormComponent', () => {
+  let component: LojaFormComponent;
+  let fixture: ComponentFixture<LojaFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashRelatorioComponent ]
+      declarations: [ LojaFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashRelatorioComponent);
+    fixture = TestBed.createComponent(LojaFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

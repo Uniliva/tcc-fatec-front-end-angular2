@@ -51,7 +51,7 @@
         <app-alerta [isVisivel]="msgLoja.ativo" [classeCor]="msgLoja.cor">
           {{msgLoja.msg}}
         </app-alerta>
-        <app-alterar-loja [loja]="loja"></app-alterar-loja>        
+        <app-loja-form [loja]="loja" titulo="Alterar dados do loja"></app-loja-form>        
       </div>
       <div class="modal-footer">
         <a class="waves-effect waves-green btn-flat vermelho" (click)="closeModal()">Fechar</a>
@@ -67,7 +67,7 @@
           <app-alerta [isVisivel]="msgSensor.ativo" [classeCor]="msgSensor.cor">
               {{msgSensor.msg}}
             </app-alerta>
-        <app-alterar-sensor [sensor]="sensorSelecionado"></app-alterar-sensor>
+        <app-sensor-form [sensor]="sensorSelecionado" titulo="Alterar dados do sensor" ></app-sensor-form>
       </div>
       <div class="modal-footer">
         <a class="waves-effect waves-green btn-flat vermelho" (click)="closeModal()">Fechar</a>

@@ -39,7 +39,6 @@ export class DetalhesLojaComponent implements OnInit, OnDestroy {
     this.inscricao = this.estabelecimentoService.getLojaporID(id).subscribe(
       res => {
         this.loja = res['estabelecimento'];
-        console.log(this.loja);
         this.loading = false;
       },
       error => this.erro = true

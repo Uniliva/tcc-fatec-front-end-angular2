@@ -1,16 +1,18 @@
 <div class="ui-g">
   <form class="ui-g-12">
-    <h5 class="valign-wrapper">
-      <i class="material-icons">create</i> &nbsp; Alterar dados do sensor</h5>
-    <div class="divider"></div>
-    <br/>
+    <div *ngIf="titulo">
+      <h5 class="valign-wrapper">
+        <i class="material-icons">create</i> &nbsp; {{titulo}}</h5>
+      <div class="divider"></div>
+      <br/>
+    </div>
     <div class="ui-g">
       <div class="input-field ui-g-12 ui-md-2">
         <input id="codigo" name="codigo" type="text" placeholder="" disabled class="validate" [(ngModel)]="sensor.codigo">
         <label for="codigo">Codigo</label>
       </div>
       <div class="input-field ui-g-12 ui-md-6">
-        <input id="decricao" name="decricao" type="text" placeholder="" class="validate" [(ngModel)]="sensor.decricao" >
+        <input id="decricao" name="decricao" type="text" placeholder="" class="validate" [(ngModel)]="sensor.decricao">
         <label for="decricao" class="active">Descrição</label>
       </div>
       <div class="input-field ui-g-6 ui-md-2">

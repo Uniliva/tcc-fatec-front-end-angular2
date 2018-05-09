@@ -11,7 +11,7 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'status', loadChildren: 'app/status/status.module#StatusModule' },
     { path: 'lojas', loadChildren: 'app/loja/loja.module#LojaModule' },
-    { path: 'relatorio', loadChildren: 'app/relatorio/relatorio.module#RelatorioModule' },
+    { path: 'configuracao', loadChildren: 'app/configuracao/configuracao.module#ConfiguracaoModule' },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: '**', component: PaginaNaoEncontradaComponent }
 ];

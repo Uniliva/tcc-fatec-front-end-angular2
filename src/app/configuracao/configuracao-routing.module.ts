@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashRelatorioComponent } from './dash-relatorio/dash-relatorio.component';
 
+import { DashConfigComponent } from './dash-config/dash-config.component';
 
 
 const routes: Routes = [
-  { path: '',  component: DashRelatorioComponent}
+  {path: '', component: DashConfigComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class RelatorioRoutingModule { }
+export class ConfiguracaoRoutingModule { }
+
+

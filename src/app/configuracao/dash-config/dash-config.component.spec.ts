@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AlterarSensorComponent } from './alterar-sensor.component';
+import { DashConfigComponent } from './dash-config.component';
 
-describe('AlterarSensorComponent', () => {
-  let component: AlterarSensorComponent;
-  let fixture: ComponentFixture<AlterarSensorComponent>;
+describe('DashConfigComponent', () => {
+  let component: DashConfigComponent;
+  let fixture: ComponentFixture<DashConfigComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlterarSensorComponent ]
+      declarations: [ DashConfigComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AlterarSensorComponent);
+    fixture = TestBed.createComponent(DashConfigComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

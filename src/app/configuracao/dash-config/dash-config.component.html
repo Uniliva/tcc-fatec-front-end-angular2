@@ -1,0 +1,54 @@
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-5">
+        <br/>
+        <p-fieldset>
+            <p-header class="valign-wrapper">
+                <i class="material-icons">add</i> &nbsp;&nbsp; Adicionar nova loja
+            </p-header>
+            <app-loja-form [loja]="lojaNova"></app-loja-form>
+            <p-footer>
+                <a class="waves-effect waves-green btn-flat right verde">Adicionar</a>
+            </p-footer>
+        </p-fieldset>
+    </div>
+    <div class="ui-g-12 ui-md-7">
+        <br/>
+        <h6>Lojas cadastradas</h6>
+        <div class="divider"></div>
+        <br/>
+        <div *ngIf="!loading">
+            <table class="responsive-table highlight">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                        <th>Telefone</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let loja of lojas">
+                        <td>{{loja.id}}</td>
+                        <td>{{loja.nome}}</td>
+                        <td>{{loja.endereco}}</td>
+                        <td>{{loja.telefone}}</td>
+                        <td>
+                            <a href="/configuracao" class="vermelho-text">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <app-loading [visivel]="loading && !erro" class="center"></app-loading>
+        <app-alerta [isVisivel]="erro" classeCor="vermelho">
+            <i class="material-icons">error</i>Não foi possivel carregar dos dados da loja
+        </app-alerta>
+
+    </div>
+</div>
+
+

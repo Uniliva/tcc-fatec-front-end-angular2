@@ -13,9 +13,14 @@
     background-color: #FADD56;
     color: #666 !important;
 }   
-
+.azul:hover { background-color: #2B303A; }
 .negrito {
     font-weight: bold;
 }
+
+.vermelho-text{
+    color: #F56954;
+}
+
 
 
