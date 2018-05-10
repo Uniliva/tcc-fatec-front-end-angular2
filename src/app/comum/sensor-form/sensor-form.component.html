@@ -8,12 +8,12 @@
     </div>
     <div class="ui-g">
       <div class="input-field ui-g-12 ui-md-2">
-        <input id="codigo" name="codigo" type="text" placeholder="" disabled class="validate" [(ngModel)]="sensor.codigo">
+        <input id="codigo" name="codigo" type="text" placeholder=""  [disabled]="editar" class="validate" [(ngModel)]="sensor.codigo">
         <label for="codigo">Codigo</label>
       </div>
       <div class="input-field ui-g-12 ui-md-6">
         <input id="decricao" name="decricao" type="text" placeholder="" class="validate" [(ngModel)]="sensor.decricao">
-        <label for="decricao" class="active">Descrição</label>
+        <label for="decricao">Descrição</label>
       </div>
       <div class="input-field ui-g-6 ui-md-2">
         <input id="tmin" name="temperaturaMin" type="text" placeholder="" class="validate" [(ngModel)]="sensor.temperaturaMin">
@@ -22,7 +22,7 @@
       <div class="input-field ui-g-6 ui-md-2">
         <input id="tmax" name="temperaturaMax" type="text" placeholder="" class="validate" [(ngModel)]="sensor.temperaturaMax">
         <label for="tmax">Temperatura Maxíma</label>
-      </div>
+      </div>           
     </div>
   </form>
 </div>

@@ -27,6 +27,14 @@ export class SensorService {
     return this._http.post<Sensor>(`${api}/atualizar`, sensor);
   }
 
+  addSensor(sensor: Sensor) {
+    console.log(sensor.idEstabelecimento);
+    sensor.temperaturaMax = parseFloat(sensor.temperaturaMax);
+    sensor.temperaturaMin = parseFloat(sensor.temperaturaMin);
+    sensor.idEstabelecimento = parseFloat(sensor.idEstabelecimento);
+    return this._http.post<Sensor>(`${api}/novo`, sensor);
+  }
+
   removeSensor(id: number) {
     return this._http.delete(`${api}/id/${id}`);
   }

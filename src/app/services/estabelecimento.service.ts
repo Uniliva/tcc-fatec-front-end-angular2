@@ -24,7 +24,7 @@ export class EstabelecimentoService {
     return this._http.post<Estabelecimento>(`${api}/atualizar`, loja);
   }
 
-  salvaLoja(loja: Estabelecimento) {
+  addLoja(loja: Estabelecimento) {
     return this._http.post(`${api}/novo`, loja);
   }
 

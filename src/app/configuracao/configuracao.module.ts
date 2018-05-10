@@ -1,8 +1,11 @@
+import { SensorService } from './../services/sensor.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ComumModule } from './../comum/comum.module';
 import { FormsModule } from '@angular/forms';
+import {TabViewModule} from 'primeng/tabview';
+import {DropdownModule} from 'primeng/dropdown';
 
 import { ConfiguracaoRoutingModule } from './configuracao-routing.module';
 import { DashConfigComponent } from './dash-config/dash-config.component';
@@ -19,11 +22,14 @@ import { EstabelecimentoService } from '../services/estabelecimento.service';
     FormsModule,
     MaterializeModule,
     ComumModule,
-    TableModule
+    TableModule,
+    TabViewModule,
+    DropdownModule
   ],
   declarations: [DashConfigComponent],
   providers: [
-    EstabelecimentoService
+    EstabelecimentoService,
+    SensorService
   ]
 })
 export class ConfiguracaoModule { }

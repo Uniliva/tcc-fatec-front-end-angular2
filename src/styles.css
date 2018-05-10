@@ -7,8 +7,11 @@
 
 .azul { background-color: #2B303A; }
 .laranja { background-color: #DC3912; }
-.verde { background-color: #00884A; }
-.vermelho { background-color: #F56954; } 
+.verde {
+     background-color: #00884A;
+     color: white !important; 
+    }
+.vermelho { background-color: #F56954 !important; } 
 .amarelo {
     background-color: #FADD56;
     color: #666 !important;
@@ -19,7 +22,7 @@
 }
 
 .vermelho-text{
-    color: #F56954;
+    color: #F56954 !important;
 }
 
 

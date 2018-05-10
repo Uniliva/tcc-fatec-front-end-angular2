@@ -11,7 +11,6 @@ export class Sensor {
     nomeEstabelemento;
     status;
     dados: Dados;
-
 }
 
 
@@ -24,4 +23,7 @@ export class Status {
         this.msg = msg;
     }
 }
+
+
+
 

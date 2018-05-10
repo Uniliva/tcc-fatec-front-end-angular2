@@ -9,6 +9,7 @@ import { Sensor } from '../../entidades/sensor';
 export class SensorFormComponent implements OnInit {
   @Input() sensor: Sensor = new Sensor();
   @Input() titulo: String = '';
+  @Input() editar: boolean;
 
   constructor() { }
 

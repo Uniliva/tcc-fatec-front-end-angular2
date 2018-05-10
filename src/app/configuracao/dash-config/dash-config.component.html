@@ -1,54 +1,125 @@
-<div class="ui-g">
-    <div class="ui-g-12 ui-md-5">
-        <br/>
-        <p-fieldset>
-            <p-header class="valign-wrapper">
-                <i class="material-icons">add</i> &nbsp;&nbsp; Adicionar nova loja
-            </p-header>
-            <app-loja-form [loja]="lojaNova"></app-loja-form>
-            <p-footer>
-                <a class="waves-effect waves-green btn-flat right verde">Adicionar</a>
-            </p-footer>
-        </p-fieldset>
-    </div>
-    <div class="ui-g-12 ui-md-7">
-        <br/>
-        <h6>Lojas cadastradas</h6>
-        <div class="divider"></div>
-        <br/>
-        <div *ngIf="!loading">
-            <table class="responsive-table highlight">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Endereço</th>
-                        <th>Telefone</th>
-                        <th>#</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let loja of lojas">
-                        <td>{{loja.id}}</td>
-                        <td>{{loja.nome}}</td>
-                        <td>{{loja.endereco}}</td>
-                        <td>{{loja.telefone}}</td>
-                        <td>
-                            <a href="/configuracao" class="vermelho-text">
-                                <i class="material-icons">delete</i>
-                            </a>
-                        </td>
-                    </tr>
+<br/>
+<p-tabView *ngIf="!loading">
+    <p-tabPanel header="Loja">
+        <div class="ui-g">
+            <div class="ui-g-12 ui-md-5">
+                <p-fieldset>
+                    <p-header class="valign-wrapper">
+                        <i class="material-icons">add</i> &nbsp;&nbsp; Adicionar nova loja
+                    </p-header>
+                    <app-loja-form [loja]="lojaNova"></app-loja-form>
+                    <p-footer>
+                        <a class="waves-effect waves-green btn-flat right verde" (click)=" addLoja(lojaNova)">Adicionar</a>
+                    </p-footer>
+                </p-fieldset>
+            </div>
+            <div class="ui-g-12 ui-md-7">
+                <p-fieldset>
+                    <p-header class="valign-wrapper">
+                        <i class="material-icons">store_mall_directory</i> &nbsp;&nbsp; Lojas cadastradas
+                    </p-header>
+                    <div>
+                        <table class="highlight">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Endereço</th>
+                                    <th>Telefone</th>
+                                    <th>#</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let loja of lojas">
+                                    <td>{{loja.id}}</td>
+                                    <td>{{loja.nome}}</td>
+                                    <td>{{loja.endereco}}</td>
+                                    <td>{{loja.telefone}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)" (click)="removeLoja(loja)">
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </td>
+                                </tr>
 
-                </tbody>
-            </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </p-fieldset>
+            </div>
         </div>
-        <app-loading [visivel]="loading && !erro" class="center"></app-loading>
-        <app-alerta [isVisivel]="erro" classeCor="vermelho">
-            <i class="material-icons">error</i>Não foi possivel carregar dos dados da loja
-        </app-alerta>
-
-    </div>
-</div>
+    </p-tabPanel>
 
 
+    <p-tabPanel header="Sensores">
+        <div class="ui-g">
+            <div class="ui-g-12 ui-md-6">
+                <p-fieldset>
+                    <p-header class="valign-wrapper">
+                        <i class="material-icons">add</i> &nbsp;&nbsp; Adicionar sensor
+                    </p-header>
+                    <app-sensor-form [sensor]="sensorNovo" editar=false></app-sensor-form>
+
+                    <select materialize="material_select" [(ngModel)]="lojaSelecionadaNovoSensorID" [materializeSelectOptions]="lojas">
+                        <option value="" disabled selected>Selecione a loja</option>
+                        <option *ngFor="let loja of lojas" [value]="loja.id">{{loja.id}} - {{loja.nome}}</option>
+                    </select>
+
+
+                    <p-footer>
+                        <a class="waves-effect waves-green btn-flat right verde" (click)=" addSensor(sensorNovo)">Adicionar</a>
+                    </p-footer>
+                </p-fieldset>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+
+
+                <p-fieldset>
+                    <p-header class="valign-wrapper">
+                        <i class="material-icons">developer_board</i> &nbsp;&nbsp; Sensores cadastrados
+                    </p-header>
+                    <div>
+                        <table class=" highlight">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Codigo</th>
+                                    <th>Descrição</th>
+                                    <th>T-MIN</th>
+                                    <th>T-Max</th>
+                                    <th>#</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let sensor of sensores">
+                                    <td>{{sensor.id}}</td>
+                                    <td>{{sensor.codigo}}</td>
+                                    <td>{{sensor.decricao}}</td>
+                                    <td>{{sensor.temperaturaMin}}</td>
+                                    <td>{{sensor.temperaturaMax}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)" (click)="removeSensor(sensor)">
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </p-fieldset>
+
+            </div>
+        </div>
+    </p-tabPanel>
+
+
+
+
+
+
+
+    <app-loading [visivel]="loading && !erro" class="center"></app-loading>
+    <app-alerta [isVisivel]="erro" classeCor="vermelho">
+        <i class="material-icons">error</i>Não foi possivel carregar dos dados
+    </app-alerta>
